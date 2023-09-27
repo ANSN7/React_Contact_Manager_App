@@ -1,4 +1,5 @@
 import React from "react";
+import { Navigate } from "react-router-dom";
 
 const divStyle = {
   marginTop: "50px",
@@ -9,6 +10,7 @@ class AddContact extends React.Component {
     name: "",
     email: "",
   };
+  submitted = false;
   add = (e) => {
     e.preventDefault();
     if (this.state.name === "" || this.state.email === "") {
@@ -17,11 +19,13 @@ class AddContact extends React.Component {
     }
     this.props.addContactHandler(this.state);
     this.setState({ name: "", email: "" });
+    this.submitted = true;
   };
   render() {
     return (
       <div className="ui main" style={divStyle}>
         <h2>Add Contact</h2>
+        {this.submitted && <Navigate to="/" replace={true} />}
         <form className="ui form" onSubmit={this.add}>
           <div className="field">
             <label>Name</label>
