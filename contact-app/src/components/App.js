@@ -6,6 +6,7 @@ import Header from "./Header";
 import AddContact from "./AddContact";
 import ContactList from "./ContactList";
 import ContactDetail from "./ContactDetail";
+import ConfirmDelete from "./ConfirmDelete";
 
 function App() {
   const LOCAL_STORAGE_KEY = "contacts";
@@ -42,7 +43,6 @@ function App() {
               <ContactList
                 render={(props) => ({ ...props })}
                 contacts={contacts}
-                getContactId={removeContactHandler}
               />
             }
           />
@@ -56,6 +56,15 @@ function App() {
             }
           />
           <Route path="/contact/:id" element={<ContactDetail />} />
+          <Route
+            path="/delete/:id"
+            element={
+              <ConfirmDelete
+                render={(props) => ({ ...props })}
+                getContactId={removeContactHandler}
+              />
+            }
+          />
         </Routes>
       </Router>
     </div>
