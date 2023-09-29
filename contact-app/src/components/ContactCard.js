@@ -19,6 +19,18 @@ const ContactCard = (props) => {
           style={{
             color: "red",
             marginTop: "7px",
+            marginLeft: "10px",
+            float: "right",
+            cursor: "pointer",
+          }}
+        ></i>
+      </Link>
+      <Link to="/edit" state={{ contact: props.contact }}>
+        <i
+          className="edit alternate outline icon"
+          style={{
+            color: "blue",
+            marginTop: "7px",
             float: "right",
             cursor: "pointer",
           }}
